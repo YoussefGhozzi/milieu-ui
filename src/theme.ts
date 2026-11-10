@@ -3,6 +3,7 @@
 const tokens = require('../tokens.js') as {
   colors: {
     brand: { DEFAULT: string; foreground: string; soft: string; strong: string };
+    energy: { DEFAULT: string; foreground: string; soft: string };
     background: string;
     surface: { DEFAULT: string; raised: string; sunken: string };
     border: { DEFAULT: string; strong: string };

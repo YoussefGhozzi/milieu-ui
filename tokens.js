@@ -1,19 +1,25 @@
 /**
  * Jetons de design MILIEU — source unique du style.
  * Lus par tailwind.config.js (classes NativeWind) et par le code (couleurs des icônes, graphiques).
- * Contrastes vérifiés sur fond `surface` : foreground 16:1, muted 7:1, brand 8:1 (WCAG AA ≥ 4,5:1).
- * `subtle` (3,9:1) est réservé aux textes secondaires de grande taille ou décoratifs.
+ *
+ * Palette énergique : orange (action principale), vert (énergie, succès), noir anthracite (fond).
+ * Les couleurs ne sont pas imposées par le cahier des charges (la charte existante du client reste à confirmer) :
+ * pour adopter la charte du client, il suffit de modifier ce fichier.
+ *
+ * Contrastes vérifiés (WCAG AA ≥ 4,5:1) sur la carte `surface` : texte 16:1, muted 8,7:1, subtle 5,4:1,
+ * orange 5,9:1, vert 7,4:1. Sur un fond orange ou vert, le texte est anthracite (6,5:1 et 8:1), jamais blanc.
  */
 const colors = {
-  brand: { DEFAULT: '#c4a91a', foreground: '#090909', soft: 'rgba(196,169,26,0.14)', strong: '#d9bd2b' },
-  background: '#090909',
-  surface: { DEFAULT: '#141414', raised: '#1c1c1c', sunken: '#0f0f0f' },
-  border: { DEFAULT: '#262626', strong: '#3a3a3a' },
-  foreground: { DEFAULT: '#f5f5f4', muted: '#a8a29e', subtle: '#78716c' },
-  success: { DEFAULT: '#34d399', soft: 'rgba(52,211,153,0.14)' },
-  warning: { DEFAULT: '#fbbf24', soft: 'rgba(251,191,36,0.14)' },
-  danger: { DEFAULT: '#f87171', soft: 'rgba(248,113,113,0.14)' },
-  info: { DEFAULT: '#60a5fa', soft: 'rgba(96,165,250,0.14)' },
+  brand: { DEFAULT: '#FF6B1A', foreground: '#121316', soft: 'rgba(255,107,26,0.16)', strong: '#FF8A45' },
+  energy: { DEFAULT: '#22C55E', foreground: '#121316', soft: 'rgba(34,197,94,0.16)' },
+  background: '#121316',
+  surface: { DEFAULT: '#1B1D21', raised: '#25282D', sunken: '#16181B' },
+  border: { DEFAULT: '#2E3238', strong: '#424750' },
+  foreground: { DEFAULT: '#FAFAFA', muted: '#B6BBC3', subtle: '#8C929B' },
+  success: { DEFAULT: '#22C55E', soft: 'rgba(34,197,94,0.16)' },
+  warning: { DEFAULT: '#FBBF24', soft: 'rgba(251,191,36,0.16)' },
+  danger: { DEFAULT: '#F87171', soft: 'rgba(248,113,113,0.16)' },
+  info: { DEFAULT: '#60A5FA', soft: 'rgba(96,165,250,0.16)' },
 };
 
 const radius = { sm: '8px', md: '12px', lg: '16px', xl: '24px', full: '9999px' };
