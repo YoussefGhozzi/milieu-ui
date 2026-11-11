@@ -9,18 +9,23 @@
  * Contrastes vérifiés (WCAG AA ≥ 4,5:1) sur la carte `surface` : texte 16:1, muted 8,7:1, subtle 5,4:1,
  * orange 5,9:1, vert 7,4:1. Sur un fond orange ou vert, le texte est anthracite (6,5:1 et 8:1), jamais blanc.
  */
+// Charte MILIEU (reprise de la maquette du client) : orange #FF3C00, lime #D9E650, noir.
+// Sur l'orange et le lime, le texte est toujours noir (contrastes 5,9:1 et 15:1).
 const colors = {
-  brand: { DEFAULT: '#FF6B1A', foreground: '#121316', soft: 'rgba(255,107,26,0.16)', strong: '#FF8A45' },
-  energy: { DEFAULT: '#22C55E', foreground: '#121316', soft: 'rgba(34,197,94,0.16)' },
-  background: '#121316',
-  surface: { DEFAULT: '#1B1D21', raised: '#25282D', sunken: '#16181B' },
-  border: { DEFAULT: '#2E3238', strong: '#424750' },
-  foreground: { DEFAULT: '#FAFAFA', muted: '#B6BBC3', subtle: '#8C929B' },
-  success: { DEFAULT: '#22C55E', soft: 'rgba(34,197,94,0.16)' },
+  brand: { DEFAULT: '#FF3C00', foreground: '#000000', soft: 'rgba(255,60,0,0.16)', strong: '#FF6333' },
+  energy: { DEFAULT: '#D9E650', foreground: '#000000', soft: 'rgba(217,230,80,0.14)' },
+  background: '#0A0A0A',
+  surface: { DEFAULT: '#161616', raised: '#222222', sunken: '#101010' },
+  border: { DEFAULT: '#2A2A2A', strong: '#404040' },
+  foreground: { DEFAULT: '#FFFFFF', muted: '#B4B4B4', subtle: '#8A8A8A' },
+  success: { DEFAULT: '#D9E650', soft: 'rgba(217,230,80,0.14)' },
   warning: { DEFAULT: '#FBBF24', soft: 'rgba(251,191,36,0.16)' },
   danger: { DEFAULT: '#F87171', soft: 'rgba(248,113,113,0.16)' },
   info: { DEFAULT: '#60A5FA', soft: 'rgba(96,165,250,0.16)' },
 };
+
+/** Polices de la marque : titres en Archivo Black, texte en Montserrat (chargées sur le web). */
+const fontFamily = { display: ['"Archivo Black"', '"Arial Black"', 'sans-serif'], sans: ['Montserrat', 'system-ui', 'Arial', 'sans-serif'] };
 
 const radius = { sm: '8px', md: '12px', lg: '16px', xl: '24px', full: '9999px' };
 
@@ -37,4 +42,4 @@ const fontSize = {
 /** Durées d'animation (ms). */
 const motion = { fast: 150, base: 250 };
 
-module.exports = { colors, radius, fontSize, motion };
+module.exports = { colors, radius, fontSize, fontFamily, motion };

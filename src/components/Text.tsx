@@ -2,11 +2,11 @@ import { Text as RNText, type TextProps } from 'react-native';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../cn';
 
-const textVariants = cva('text-foreground', {
+const textVariants = cva('font-sans text-foreground', {
   variants: {
     variant: {
-      display: 'text-display font-bold tracking-tight',
-      title: 'text-title font-bold tracking-tight',
+      display: 'font-display text-display font-normal tracking-tight',
+      title: 'font-display text-title font-normal tracking-tight',
       heading: 'text-heading font-semibold',
       body: 'text-body',
       label: 'text-label font-medium',
