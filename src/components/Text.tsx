@@ -1,6 +1,8 @@
+import { Children } from 'react';
 import { Text as RNText, type TextProps } from 'react-native';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../cn';
+import { translate } from '../i18n';
 
 const textVariants = cva('font-sans text-foreground', {
   variants: {
@@ -29,7 +31,9 @@ const textVariants = cva('font-sans text-foreground', {
 
 export type TextVariantProps = VariantProps<typeof textVariants>;
 
-export function Text({ variant, tone, className, ...props }: TextProps & TextVariantProps & { className?: string }) {
+export function Text({ variant, tone, className, children, ...props }: TextProps & TextVariantProps & { className?: string }) {
   const role = variant === 'display' || variant === 'title' || variant === 'heading' ? 'header' : undefined;
-  return <RNText accessibilityRole={role} className={cn(textVariants({ variant, tone }), className)} {...props} />;
+  // Chaque morceau de texte est traduit dans la langue courante (les nombres et éléments restent tels quels).
+  const content = Children.toArray(children).map((c) => (typeof c === 'string' ? translate(c) : c));
+  return <RNText accessibilityRole={role} className={cn(textVariants({ variant, tone }), className)} {...props}>{content}</RNText>;
 }

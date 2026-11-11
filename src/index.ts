@@ -1,5 +1,6 @@
 export { cn } from './cn';
-export { colors, motion } from './theme';
+export { colors, motion, applyTheme, themeVariables, getThemeMode, type ThemeMode } from './theme';
+export { setTranslator, translate } from './i18n';
 export { Text, type TextVariantProps } from './components/Text';
 export { Button, type ButtonProps } from './components/Button';
 export { Sheet } from './components/Sheet';
