@@ -5,8 +5,13 @@
   "description": "Design system MILIEU : jetons de design et composants React Native (NativeWind, style shadcn/ui)",
   "main": "src/index.ts",
   "types": "src/index.ts",
-  "files": ["src", "tokens.js"],
-  "scripts": { "typecheck": "tsc --noEmit" },
+  "files": [
+    "src",
+    "tokens.js"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -17,5 +22,9 @@
     "react": "*",
     "react-native": "*",
     "react-native-safe-area-context": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YoussefGhozzi/milieu-ui.git"
   }
 }
