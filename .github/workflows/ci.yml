@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  package:
+    name: Contenu du paquet
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - name: Le paquet contient les sources et les jetons de design
+        run: |
+          npm pack --dry-run --json > pack.json
+          node -e "const f=require('./pack.json')[0].files.map(x=>x.path); for (const need of ['src/index.ts','tokens.js']) if(!f.includes(need)) throw new Error(need+' absent'); console.log(f.length+' fichiers')"

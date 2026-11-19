@@ -1,0 +1,34 @@
+# Publie le design system sur GitHub Packages quand on pousse un tag vX.Y.Z (même numéro que package.json).
+#   npm version minor   →  commit + tag   →  git push --follow-tags
+name: Publication
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://npm.pkg.github.com
+          scope: '@youssefghozzi'
+      - name: Le tag correspond à la version du paquet
+        run: |
+          version=$(node -p "require('./package.json').version")
+          [ "v$version" = "$GITHUB_REF_NAME" ] || { echo "Tag $GITHUB_REF_NAME ≠ version $version"; exit 1; }
+      # Publié en sources TypeScript : seules les apps Expo l'utilisent, et Metro compile le TypeScript.
+      # GitHub Packages exige le nom du propriétaire : @youssefghozzi/milieu-ui (import inchangé grâce à un alias).
+      - name: Préparer le paquet publié
+        run: |
+          npm pkg delete private
+          npm pkg set name=@youssefghozzi/milieu-ui
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
